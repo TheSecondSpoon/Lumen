@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+    color: whitesmoke;
+}
+
+ /*tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/*tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: fit-content;
+    background-color: dimgrey;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /*tooltip position */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /*tooltip fade */
+    opacity: 0;
+    transition: opacity 0.3s;
+
+}
+
+/* show tooltip on hover */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
