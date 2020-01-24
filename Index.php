@@ -33,13 +33,13 @@
             <hr>
             <div class="row">
                 <div class="col">
-                    <button onclick="duplicateFirestone()" type="button" class="btn btn-lg btn-light btn-block">
-                        Duplicate firestone
+                    <div class="tooltip">
+                    <button onclick="duplicateFlint()" type="button" class="btn btn-lg btn-light btn-block" id="flintButton">
+                        Duplicate flint (level 1)
                     </button>
-                    <p id="duplicateFirestone">
-                        Duplicate firestone (1)<br>
-                        Cost: 10
-                    </p>
+                        <span id="flintTool" class="tooltiptext"> Increase lumen per hit by 1<br>
+                        Cost: 10</span>
+                    </div>
                 </div>
                 <div class="col">
 
@@ -47,8 +47,8 @@
             </div>
             <hr>
             <p id="lumenPerHit">Lumen per hit: 1</p>
-            <button onclick="hitStone()" type="button" class="btn btn-lg btn-light btn-block">
-                Hit firestones
+            <button onclick="hitFlint()" type="button" class="btn btn-lg btn-light btn-block">
+                Hit flint
             </button>
         </div>
         <div class="col">

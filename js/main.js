@@ -1,24 +1,24 @@
 var gameData = {
     lumen: 0,
     lumenPerHit: 1,
-    firestoneCost: 10,
-    firestoneLevel: 1
+    flintCost: 10,
+    flintLevel: 1
 };
 
-function hitStone() {
+function hitFlint() {
     gameData.lumen += gameData.lumenPerHit;
     document.getElementById("availableLumen").innerHTML = "Available Lumens: " + gameData.lumen;
 }
 
-function duplicateFirestone () {
-    if (gameData.lumen >= gameData.firestoneCost) {
-        gameData.lumen -= gameData.firestoneCost;
-        gameData.firestoneLevel += 1;
+function duplicateFlint () {
+    if (gameData.lumen >= gameData.flintCost) {
+        gameData.lumen -= gameData.flintCost;
+        gameData.flintLevel += 1;
         gameData.lumenPerHit += 1;
-        gameData.firestoneCost *= 2;
+        gameData.flintCost *= 2;
         document.getElementById("availableLumen").innerHTML = "Available Lumens: " + gameData.lumen;
-        document.getElementById("duplicateFirestone").innerHTML = " Duplicate firestone (" + gameData.firestoneLevel +
-            ")<br>Cost: " + gameData.firestoneCost;
+        document.getElementById("flintButton").innerHTML = "Duplicate flint (level " + gameData.flintLevel + ")";
+        document.getElementById("flintTool").innerHTML = " Increase lumen per hit by 1<br>Cost: " + gameData.flintCost;
         document.getElementById("lumenPerHit").innerHTML = "Lumen per hit: " + gameData.lumenPerHit;
     }
 }
@@ -42,7 +42,7 @@ window.onload = function () {
         gameData = savegame
     }
     document.getElementById("availableLumen").innerHTML = "Available Lumens: " + gameData.lumen;
-    document.getElementById("duplicateFirestone").innerHTML = " Duplicate firestone (" + gameData.firestoneLevel +
-        ")<br>Cost: " + gameData.firestoneCost;
+    document.getElementById("flintButton").innerHTML = "Duplicate flint (level " + gameData.flintLevel + ")";
+    document.getElementById("flintTool").innerHTML = " Increase lumen per hit by 1<br>Cost: " + gameData.flintCost;
     document.getElementById("lumenPerHit").innerHTML = "Lumen per hit: " + gameData.lumenPerHit;
 };
