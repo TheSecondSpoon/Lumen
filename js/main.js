@@ -56,6 +56,7 @@ function log(index){
 }
 
 
+
 function deleteSave() {
     localStorage.clear()
     location.reload(true)

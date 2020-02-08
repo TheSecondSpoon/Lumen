@@ -55,14 +55,12 @@
         </div>
         <div class="col-4">
             <h2 class="text-center">Log</h2>
-            <div class="vh-100">
-                <div class="overflow-auto">
+            <div class="fluid-container overflow-auto">
                 <p id="0"></p>
                 <p id="1"></p>
                 <p id="2"></p>
                 <p id="3"></p>
                 <p id="4"></p>
-                </div>
             </div>
         </div>
     </div>
