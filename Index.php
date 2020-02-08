@@ -16,39 +16,35 @@
 <header>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-lg-auto">
-                <h1 id="availableLumen">Available Lumens: 0</h1>
-            </div>
         </div>
     </div>
 </header>
 <hr>
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
-
+        <div class="col-2">
+            <h2 class="text-center">Resources</h2>
+            <hr>
+            <p id="Lumen">Lumen: 0</p>
+            <p id="Science">Science: 0</p>
         </div>
         <div class="col">
             <h2 class="text-center">Active Light</h2>
             <hr>
             <div class="row">
-                <div class="col">
-                    <div class="tooltip">
+                <div class="col tooltip">
                         <button onclick="upgrade('torch', 'lumen')" type="button" class="btn btn-lg btn-light btn-block" id="torchButton">
                             Create Torch (0)
                         </button>
                         <span id="torchTool" class="tooltiptext"> Generate 1 lumen per second<br>
                         Cost: 10 lumen</span>
-                    </div>
                 </div>
-                <div class="col">
-                    <div class="tooltip">
+                <div class="col tooltip">
                         <button onclick="upgrade('campfire', 'lumen')" type="button" class="btn btn-lg btn-light btn-block" id="campfireButton">
                             Create campfire (0)
                         </button>
                         <span id="campfireTool" class="tooltiptext"> Generate 10 lumen per second<br>
                         Cost: 150 lumen</span>
-                    </div>
                 </div>
             </div>
             <hr>
@@ -57,8 +53,8 @@
                 Hit flint
             </button>
         </div>
-        <div class="col">
-
+        <div class="col-4">
+            <h2 class="text-center">Log</h2>
         </div>
     </div>
 </div>
