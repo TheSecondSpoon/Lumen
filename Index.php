@@ -34,20 +34,11 @@
             <div class="row">
                 <div class="col">
                     <div class="tooltip">
-                        <button onclick="duplicateFlint()" type="button" class="btn btn-lg btn-light btn-block" id="flintButton">
-                            Duplicate flint (level 1)
+                        <button onclick="upgrade('torch', 'lumen')" type="button" class="btn btn-lg btn-light btn-block" id="flintButton">
+                            Create Torch (0)
                         </button>
-                        <span id="flintTool" class="tooltiptext"> Increase lumen per hit by 1<br>
-                        Cost: 10 lumens</span>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="tooltip">
-                        <button onclick="bundleFlint()" type="button" class="btn btn-lg btn-light btn-block" id="flintButton">
-                            Bundle flint (level 1)
-                        </button>
-                        <span id="flintTool" class="tooltiptext"> Increase lumen per hit by 10%<br>
-                        Cost: 5 flint</span>
+                        <span id="flintTool" class="tooltiptext"> Generate 1 lumen per second<br>
+                        Cost: 10 lumen</span>
                     </div>
                 </div>
             </div>
