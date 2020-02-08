@@ -34,20 +34,20 @@
             <div class="row">
                 <div class="col">
                     <div class="tooltip">
-                        <button onclick="duplicateFlint()" type="button" class="btn btn-lg btn-light btn-block" id="flintButton">
-                            Duplicate flint (level 1)
+                        <button onclick="upgrade('torch', 'lumen')" type="button" class="btn btn-lg btn-light btn-block" id="torchButton">
+                            Create Torch (0)
                         </button>
-                        <span id="flintTool" class="tooltiptext"> Increase lumen per hit by 1<br>
-                        Cost: 10 lumens</span>
+                        <span id="torchTool" class="tooltiptext"> Generate 1 lumen per second<br>
+                        Cost: 10 lumen</span>
                     </div>
                 </div>
                 <div class="col">
                     <div class="tooltip">
-                        <button onclick="bundleFlint()" type="button" class="btn btn-lg btn-light btn-block" id="flintButton">
-                            Bundle flint (level 1)
+                        <button onclick="upgrade('campfire', 'lumen')" type="button" class="btn btn-lg btn-light btn-block" id="campfireButton">
+                            Create campfire (0)
                         </button>
-                        <span id="flintTool" class="tooltiptext"> Increase lumen per hit by 10%<br>
-                        Cost: 5 flint</span>
+                        <span id="campfireTool" class="tooltiptext"> Generate 10 lumen per second<br>
+                        Cost: 150 lumen</span>
                     </div>
                 </div>
             </div>
@@ -65,6 +65,9 @@
 <footer>
     <nav class="navbar fixed-bottom">
         <button onclick="deleteSave()" class="btn btn-outline-danger"> clear data </button>
+        <button onclick="cheating(100)" class="btn btn-outline-warning"> 100 </button>
+        <button onclick="cheating(10000)" class="btn btn-outline-warning"> 10000 </button>
+        <button onclick="cheating(10000000)" class="btn btn-outline-warning"> 10000000 </button>
     </nav>
 </footer>
 <script src="js/main.js" charset="utf-8" type="text/javascript"></script>
