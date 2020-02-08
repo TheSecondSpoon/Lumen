@@ -14,41 +14,37 @@
 <body>
 
 <header>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-auto">
-                <h1 id="availableLumen">Available Lumens: 0</h1>
-            </div>
         </div>
     </div>
 </header>
 <hr>
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
-
+        <div class="col-2">
+            <h2 class="text-center">Resources</h2>
+            <hr>
+            <p id="Lumen">Lumen: 0</p>
+            <p id="Science">Science: 0</p>
         </div>
         <div class="col">
             <h2 class="text-center">Active Light</h2>
             <hr>
             <div class="row">
-                <div class="col">
-                    <div class="tooltip">
-                        <button onclick="duplicateFlint()" type="button" class="btn btn-lg btn-light btn-block" id="flintButton">
-                            Duplicate flint (level 1)
+                <div class="col tooltip">
+                        <button onclick="upgrade('torch', 'lumen')" type="button" class="btn btn-lg btn-light btn-block" id="torchButton">
+                            Create Torch (0)
                         </button>
-                        <span id="flintTool" class="tooltiptext"> Increase lumen per hit by 1<br>
-                        Cost: 10 lumens</span>
-                    </div>
+                        <span id="torchTool" class="tooltiptext"> Generate 1 lumen per second<br>
+                        Cost: 10 lumen</span>
                 </div>
-                <div class="col">
-                    <div class="tooltip">
-                        <button onclick="bundleFlint()" type="button" class="btn btn-lg btn-light btn-block" id="flintButton">
-                            Bundle flint (level 1)
+                <div class="col tooltip">
+                        <button onclick="upgrade('campfire', 'lumen')" type="button" class="btn btn-lg btn-light btn-block" id="campfireButton">
+                            Create campfire (0)
                         </button>
-                        <span id="flintTool" class="tooltiptext"> Increase lumen per hit by 10%<br>
-                        Cost: 5 flint</span>
-                    </div>
+                        <span id="campfireTool" class="tooltiptext"> Generate 10 lumen per second<br>
+                        Cost: 150 lumen</span>
                 </div>
             </div>
             <hr>
@@ -57,14 +53,26 @@
                 Hit flint
             </button>
         </div>
-        <div class="col">
-
+        <div class="col-4">
+            <h2 class="text-center">Log</h2>
+            <div class="vh-100">
+                <div class="overflow-auto">
+                <p id="0"></p>
+                <p id="1"></p>
+                <p id="2"></p>
+                <p id="3"></p>
+                <p id="4"></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <footer>
     <nav class="navbar fixed-bottom">
         <button onclick="deleteSave()" class="btn btn-outline-danger"> clear data </button>
+        <button onclick="cheating(100)" class="btn btn-outline-warning"> 100 </button>
+        <button onclick="cheating(10000)" class="btn btn-outline-warning"> 10000 </button>
+        <button onclick="cheating(10000000)" class="btn btn-outline-warning"> 10000000 </button>
     </nav>
 </footer>
 <script src="js/main.js" charset="utf-8" type="text/javascript"></script>
