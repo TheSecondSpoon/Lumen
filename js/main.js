@@ -2,7 +2,9 @@ var gameData = {
     lumen: 0,
     lumenPerHit: 1,
     flintCost: 10,
-    flintLevel: 1
+    flintLevel: 1,
+    bundleCost: 25,
+    bundleLevel: 1,
 };
 
 function hitFlint() {
@@ -22,6 +24,7 @@ function duplicateFlint () {
         document.getElementById("lumenPerHit").innerHTML = "Lumen per hit: " + gameData.lumenPerHit;
     }
 }
+
 
 function deleteSave() {
     localStorage.clear()
