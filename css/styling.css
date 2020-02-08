@@ -3,7 +3,7 @@ body {
     color: whitesmoke;
 }
 
- /*tooltip container */
+/*tooltip container */
 .tooltip {
     position: relative;
     display: inline-block;
@@ -23,8 +23,8 @@ body {
     position: absolute;
     z-index: 1;
     bottom: 30%;
-    left: 80%;
-    margin-left: 60px;
+    right: 80%;
+    margin-right: 60px;
 
     /*tooltip fade */
     opacity: 0;

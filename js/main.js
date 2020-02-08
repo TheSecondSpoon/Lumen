@@ -1,27 +1,33 @@
+
+
 var gameData = {
-    lumen: 0,
-    lumenPerHit: 1,
-    flintCost: 10,
-    flintLevel: 1,
-    bundleCost: 25,
-    bundleLevel: 1,
+    resources : {
+        lumen: 0,
+        torch: 0,
+        lumenPerHit: 1,
+    },
+    costs : {
+        torch: 10,
+        costincrease : {
+            torch: 1.25,
+        },
+    },
+
+
 };
 
+
 function hitFlint() {
-    gameData.lumen += gameData.lumenPerHit;
-    document.getElementById("availableLumen").innerHTML = "Available Lumens: " + gameData.lumen;
+    gameData.resources.lumen += gameData.resources.lumenPerHit;
+    updateWebsite();
 }
 
-function duplicateFlint () {
-    if (gameData.lumen >= gameData.flintCost) {
-        gameData.lumen -= gameData.flintCost;
-        gameData.flintLevel += 1;
-        gameData.lumenPerHit += 1;
-        gameData.flintCost *= 2;
-        document.getElementById("availableLumen").innerHTML = "Available Lumens: " + gameData.lumen;
-        document.getElementById("flintButton").innerHTML = "Duplicate flint (level " + gameData.flintLevel + ")";
-        document.getElementById("flintTool").innerHTML = " Increase lumen per hit by 1<br>Cost: " + gameData.flintCost;
-        document.getElementById("lumenPerHit").innerHTML = "Lumen per hit: " + gameData.lumenPerHit;
+function upgrade(upgrade, resource){
+    if(gameData.resources[resource] >= gameData.costs[upgrade]){
+        gameData.resources[upgrade] += 1;
+        gameData.resources[resource] -= gameData.costs[upgrade];
+        gameData.costs[upgrade] = Math.round(gameData.costs[upgrade] * gameData.costs.costincrease[upgrade]);
+        updateWebsite();
     }
 }
 
@@ -37,6 +43,7 @@ var mainGameLoop = window.setInterval(function() {
 
 var saveGameLoop = window.setInterval(function () {
     localStorage.setItem('lumenSave', JSON.stringify(gameData))
+
 }, 15000);
 
 window.onload = function () {
@@ -44,8 +51,13 @@ window.onload = function () {
     if (savegame !== null) {
         gameData = savegame
     }
-    document.getElementById("availableLumen").innerHTML = "Available Lumens: " + gameData.lumen;
-    document.getElementById("flintButton").innerHTML = "Duplicate flint (level " + gameData.flintLevel + ")";
-    document.getElementById("flintTool").innerHTML = " Increase lumen per hit by 1<br>Cost: " + gameData.flintCost;
-    document.getElementById("lumenPerHit").innerHTML = "Lumen per hit: " + gameData.lumenPerHit;
+    updateWebsite();
+
 };
+
+function updateWebsite() {
+    document.getElementById("availableLumen").innerHTML = "Available Lumens: " + gameData.resources.lumen;
+    document.getElementById("torchButton").innerHTML = "Create Torch (" + gameData.resources.torch + ")";
+    document.getElementById("torchTool").innerHTML = "Creates passive lumen income<br>Cost: " + gameData.costs.torch + " lumen";
+
+}

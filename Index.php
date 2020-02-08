@@ -34,9 +34,9 @@
             <div class="row">
                 <div class="col">
                     <div class="tooltip">
-                    <button onclick="duplicateFlint()" type="button" class="btn btn-lg btn-light btn-block" id="flintButton">
-                        Duplicate flint (level 1)
-                    </button>
+                        <button onclick="duplicateFlint()" type="button" class="btn btn-lg btn-light btn-block" id="flintButton">
+                            Duplicate flint (level 1)
+                        </button>
                         <span id="flintTool" class="tooltiptext"> Increase lumen per hit by 1<br>
                         Cost: 10 lumens</span>
                     </div>
