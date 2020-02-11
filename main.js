@@ -8,25 +8,28 @@ var gameData = {
     resources: {
         lumen: 0,
         science: 0,
-        lumenPerHit: 1,
     },
     buildings: {
         upgrades: {
             torch: 0,
             campfire: 0,
+            bonfire: 0,
             },
         costs: {
             torch: 10,
-            campfire: 150,
+            campfire: 100,
+            bonfire: 500,
 
             costincrease: {
-                torch: 1.25,
-                campfire: 1.25,
+                torch: 1.15,
+                campfire: 1.15,
+                bonfire: 1.15,
             },
         },
         income: {
             torch: 1,
-            campfire: 10,
+            campfire: 5,
+            bonfire: 10,
         },
     },
 
@@ -62,7 +65,7 @@ document.getElementById("deleteSave").addEventListener("click", deleteSave);
  */
 document.getElementById("torchButton").addEventListener("click", function () {callupgrade('resources', 'buildings','torch', 'lumen')});
 document.getElementById("campfireButton").addEventListener("click", function () {callupgrade('resources','buildings','campfire', 'lumen');});
-
+document.getElementById("bonfireButton").addEventListener("click", function () {callupgrade('resources','buildings','bonfire', 'lumen');});
 
 /*
         Research
@@ -116,7 +119,7 @@ function cheating(amount) {
 }
 
 function hitFlint() {
-    gameData.resources.lumen += gameData.resources.lumenPerHit;
+    gameData.resources.lumen += 1;
     updateWebsite();
 }
 
@@ -128,11 +131,13 @@ function deleteSave() {
 }
 
 function updateWebsite() {
+    document.getElementById("lumen").innerHTML = "Lumen: " + gameData.resources.lumen + " (+" + lumenPerSecond() + " p/s)";
     document.getElementById("torchButton").innerHTML = "Create Torch (" + gameData.buildings.upgrades.torch + ")";
-    document.getElementById("lumen").innerHTML = "Lumen: " + gameData.resources.lumen + " (" + lumenPerSecond() + " p/s)";
     document.getElementById("torchTool").innerHTML = "Generate 1 lumen per second<hr>Cost: " + gameData.buildings.costs.torch + " lumen";
     document.getElementById("campfireButton").innerHTML = "Create campfire (" + gameData.buildings.upgrades.campfire + ")";
-    document.getElementById("campfireTool").innerHTML = "Generate 10 lumen per second<hr>Cost: " + gameData.buildings.costs.campfire + " lumen";
+    document.getElementById("campfireTool").innerHTML = "Generate 5 lumen per second<hr>Cost: " + gameData.buildings.costs.campfire + " lumen";
+    document.getElementById("bonfireButton").innerHTML = "Create bonfire (" + gameData.buildings.upgrades.bonfire + ")";
+    document.getElementById("bonfireTool").innerHTML = "Generate 10 lumen per second<hr>Cost: " + gameData.buildings.costs.bonfire + " lumen";
 }
 
 
@@ -154,6 +159,12 @@ var storyGameLoop = window.setInterval(function () {
     log(0);
     if (gameData.buildings.upgrades.torch >= 1) {
         log(1);
+    }
+    if (gameData.buildings.upgrades.campfire >= 1) {
+        log(2);
+    }
+    if (gameData.buildings.upgrades.bonfire >= 1) {
+        log(3);
     }
 
 }, 1000);

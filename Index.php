@@ -35,7 +35,7 @@
             <ul class="nav nav-pills nav-justified " role="tablist" id="tabs">
                 <li class="nav-item tab"><a class="nav-link active" data-toggle="pill" href="#buildings">Buildings</a>
                 </li>
-                <li class="nav-item tab"><a class="nav-link" data-toggle="pill" href="#menu1">Menu 1</a></li>
+                <li class="nav-item tab"><a class="nav-link" data-toggle="pill" href="#research">Research</a></li>
                 <li class="nav-item tab"><a class="nav-link" data-toggle="pill" href="#menu2">Menu 2</a></li>
                 <li class="nav-item tab"><a class="nav-link" data-toggle="pill" href="#menu3">Menu 3</a></li>
             </ul>
@@ -50,7 +50,7 @@
 
         <!-- Col-Resources ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-        <div class="col-2">
+        <div class="col-2 resources">
             <h2 class="text-center">Resources</h2>
             <hr>
             <p id="lumen">Lumen: 0</p>
@@ -66,46 +66,77 @@
 
                 <div id="buildings" class="tab-pane fade show active" role="tabpanel" aria-labelledby="buildings-tab">
                     <h2 class="text-center">Buildings</h2>
-                    <hr>
+
+                    <!-- Nav-Building ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
                     <div class="row">
-                        <div class="col tooltip">
-                            <button type="button" class="btn btn-lg btn-light btn-block" id="torchButton">
-                                Create torch (0)
-                            </button>
-                            <span id="torchTool" class="tooltiptext">
-                                Generate 1 lumen per second <hr>
-                                Cost: 10 lumen</span>
-                        </div>
-                        <div class="col tooltip">
-                            <button type="button" class="btn btn-lg btn-light btn-block"
-                                    id="campfireButton">
-                                Create campfire (0)
-                            </button>
-                            <span id="campfireTool" class="tooltiptext">
-                                Generate 10 lumen per second <hr>
-                                Cost: 150 lumen</span>
-                        </div>
-                        <div class="col tooltip">
-                            <button type="button" class="btn btn-lg btn-light btn-block"
-                                    id="bonfireButton">
-                                Create bonfire (0)
-                            </button>
-                            <span id="bonfireTool" class="tooltiptext">
-                                Generate 50 lumen per second <hr>
-                                Cost: 1000 lumen</span>
+                        <div class="col">
+                            <ul class="nav nav-pills nav-justified " role="tablist" id="tabs">
+                                <li class="nav-item tab"><a class="nav-link active" data-toggle="pill"
+                                                            href="#building-lumen">Lumen</a>
+                                </li>
+                                <li class="nav-item tab"><a class="nav-link" data-toggle="pill"
+                                                            href="#building-research">Research</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <hr>
-                    <p id="lumenPerHit">Lumen per hit: 1</p>
-                    <button id="hitFlint" type="button" class="btn btn-lg btn-light btn-block">
-                        Hit flint
-                    </button>
+                    <div class="tab-content">
+
+                        <!-- Tab-Building-Lumen ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+                        <div id="building-lumen" class="tab-pane fade show active" role="tabpanel"
+                             aria-labelledby="buildingsLumen-tab">
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    <button id="hitFlint" type="button" class="btn btn-lg btn-light btn-block">
+                                        Hit flint
+                                    </button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col tooltip">
+                                    <button type="button" class="btn btn-lg btn-light btn-block" id="torchButton">
+                                        Create torch (0)
+                                    </button>
+                                    <span id="torchTool" class="tooltiptext">
+                                Generate 1 lumen per second <hr>
+                                Cost: 10 lumen</span>
+                                </div>
+                                <div class="col tooltip">
+                                    <button type="button" class="btn btn-lg btn-light btn-block"
+                                            id="campfireButton">
+                                        Create campfire (0)
+                                    </button>
+                                    <span id="campfireTool" class="tooltiptext">
+                                Generate 10 lumen per second <hr>
+                                Cost: 150 lumen</span>
+                                </div>
+                                <div class="col tooltip">
+                                    <button type="button" class="btn btn-lg btn-light btn-block"
+                                            id="bonfireButton">
+                                        Create bonfire (0)
+                                    </button>
+                                    <span id="bonfireTool" class="tooltiptext">
+                                Generate 50 lumen per second <hr>
+                                Cost: 1000 lumen</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab-Building-Research ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+                        <div id="building-research" class="tab-pane fade" role="tabpanel"
+                             aria-labelledby="buildingsResearch-tab">
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Tab-Menu1 ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                <div id="menu1" class="tab-pane fade" role="tabpanel" aria-labelledby="menu1-tab">
-                    <h3>Menu 1</h3>
+                <div id="research" class="tab-pane fade" role="tabpanel" aria-labelledby="research-tab">
+                    <h2 class="text-center">Research</h2>
                     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat.</p>
                 </div>
@@ -159,7 +190,7 @@
 <script type="module" src="main.js" charset="utf-8"></script>
 <script>
     $('#tabs a').on('click', function (e) {
-        e.preventDefault()
+        e.preventDefault();
         $(this).tab('show')
     })
 </script>
