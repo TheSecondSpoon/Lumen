@@ -1,7 +1,16 @@
+
+
+
 body {
     background-color: black;
     color: whitesmoke;
+    overflow-y: hidden;
 }
+
+div .log {
+    height: 90vh;
+}
+
 
 /*tooltip container */
 .tooltip {
@@ -13,10 +22,10 @@ body {
 /*tooltip text */
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 100%;
+    width: max-content;
     background-color: dimgrey;
     text-align: center;
-    padding: 5px;
+    padding: 5px 10px;
     border-radius: 6px;
 
     /*tooltip position */
@@ -31,6 +40,14 @@ body {
     transition: opacity 0.3s;
 
 }
+
+/* tooltip hr*/
+.tooltiptext hr {
+    margin-bottom: 3px;
+    margin-top: 10px;
+    background-color: darkgrey;
+}
+
 
 /* show tooltip on hover */
 .tooltip:hover .tooltiptext {
