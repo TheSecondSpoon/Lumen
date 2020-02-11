@@ -10,23 +10,41 @@ var gameData = {
         science: 0,
         lumenPerHit: 1,
     },
-    upgrades: {
-        torch: 0,
-        campfire: 0,
-    },
-    costs: {
-        torch: 10,
-        campfire: 150,
-        costincrease: {
-            torch: 1.25,
-            campfire: 1.25,
+    buildings: {
+        upgrades: {
+            torch: 0,
+            campfire: 0,
+            },
+        costs: {
+            torch: 10,
+            campfire: 150,
+
+            costincrease: {
+                torch: 1.25,
+                campfire: 1.25,
+            },
+        },
+        income: {
+            torch: 1,
+            campfire: 10,
         },
     },
-    income: {
-        torch: 1,
-        campfire: 10,
+
+    research: {
+        upgrades: {
+            blueflames: 0,
+        },
+        costs: {
+            blueflames: 500,
+
+            costincrease: {
+
+                blueflames: 1.25,
+            },
+        },
     },
 };
+
 
 /* LOG TESTS ---------------------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -42,17 +60,46 @@ document.getElementById("deleteSave").addEventListener("click", deleteSave);
 /*
         Upgrades
  */
-document.getElementById("torchButton").addEventListener("click", function () {upgrade('torch', 'lumen')});
-document.getElementById("campfireButton").addEventListener("click", function () {upgrade('campfire', 'lumen');});
+document.getElementById("torchButton").addEventListener("click", function () {callupgrade('resources', 'buildings','torch', 'lumen')});
+document.getElementById("campfireButton").addEventListener("click", function () {callupgrade('resources','buildings','campfire', 'lumen');});
+
+
+/*
+        Research
+ */
+
+
 
 /* WRITE STORY ---------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 
-/* UNSORTED FUNCTIONS ------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Upgrade Functions ------------------------------------------------------------------------------------------------------------------------------------------- */
+function callupgrade(type_upgrade, affects, upgrade, resource){
+    switch (type_upgrade) {
+        case 'resources':
+            standard_upgrade(affects,upgrade,resource);
+            break;
+        case 'research':
+            standard_upgrade(affects,upgrade, resource);
+            break;
+        default:
+            break;
+    }
+}
 
+function standard_upgrade(affects, upgrade, resource) {
+    if (gameData.resources[resource] >= gameData[affects].costs[upgrade]) {
+        gameData[affects].upgrades[upgrade] += 1;
+        gameData.resources[resource] -= gameData[affects].costs[upgrade];
+        gameData[affects].costs[upgrade] = Math.round(gameData[affects].costs[upgrade] * gameData[affects].costs.costincrease[upgrade]);
+        updateWebsite();
+    }
+}
+
+/* UNSORTED FUNCTIONS ------------------------------------------------------------------------------------------------------------------------------------------- */
 function lumenPerSecond() {
-    var upgrade = Object.values(gameData.upgrades);
-    var income = Object.values(gameData.income);
+    var upgrade = Object.values(gameData.buildings.upgrades);
+    var income = Object.values(gameData.buildings.income);
     var lumenPerSecond = 0;
 
     for (var i = 0; i < upgrade.length; i++) {
@@ -73,14 +120,7 @@ function hitFlint() {
     updateWebsite();
 }
 
-function upgrade(upgrade, resource) {
-    if (gameData.resources[resource] >= gameData.costs[upgrade]) {
-        gameData.upgrades[upgrade] += 1;
-        gameData.resources[resource] -= gameData.costs[upgrade];
-        gameData.costs[upgrade] = Math.round(gameData.costs[upgrade] * gameData.costs.costincrease[upgrade]);
-        updateWebsite();
-    }
-}
+
 
 function deleteSave() {
     localStorage.clear();
@@ -88,11 +128,11 @@ function deleteSave() {
 }
 
 function updateWebsite() {
-    document.getElementById("torchButton").innerHTML = "Create Torch (" + gameData.upgrades.torch + ")";
+    document.getElementById("torchButton").innerHTML = "Create Torch (" + gameData.buildings.upgrades.torch + ")";
     document.getElementById("lumen").innerHTML = "Lumen: " + gameData.resources.lumen + " (" + lumenPerSecond() + " p/s)";
-    document.getElementById("torchTool").innerHTML = "Generate 1 lumen per second<hr>Cost: " + gameData.costs.torch + " lumen";
-    document.getElementById("campfireButton").innerHTML = "Create campfire (" + gameData.upgrades.campfire + ")";
-    document.getElementById("campfireTool").innerHTML = "Generate 10 lumen per second<hr>Cost: " + gameData.costs.campfire + " lumen";
+    document.getElementById("torchTool").innerHTML = "Generate 1 lumen per second<hr>Cost: " + gameData.buildings.costs.torch + " lumen";
+    document.getElementById("campfireButton").innerHTML = "Create campfire (" + gameData.buildings.upgrades.campfire + ")";
+    document.getElementById("campfireTool").innerHTML = "Generate 10 lumen per second<hr>Cost: " + gameData.buildings.costs.campfire + " lumen";
 }
 
 
@@ -112,7 +152,7 @@ var mainGameLoop = window.setInterval(function () {
 var storyGameLoop = window.setInterval(function () {
 
     log(0);
-    if (gameData.upgrades.torch >= 1) {
+    if (gameData.buildings.upgrades.torch >= 1) {
         log(1);
     }
 
