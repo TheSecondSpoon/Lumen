@@ -22,10 +22,6 @@
     </title>
 </head>
 
-<<<<<<< Updated upstream
-<body class="vh-100">
-<div class="container-fluid">
-=======
 <!-- Start body ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <body>
@@ -49,7 +45,7 @@
 
     <!-- Main Game Row----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
->>>>>>> Stashed changes
+
     <div class="row">
 
         <!-- Col-Resources ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -64,36 +60,6 @@
         <!-- Col-tabs ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
         <div class="col">
-<<<<<<< Updated upstream
-            <h2 class="text-center">Active Light</h2>
-            <hr>
-            <div class="row">
-                <div class="col tooltip">
-                    <button type="button" class="btn btn-lg btn-light btn-block" id="torchButton">
-                        Create Torch (0)
-                    </button>
-                    <span id="torchTool" class="tooltiptext">
-                        Generate 1 lumen per second <hr>
-                        Cost: 10 lumen
-                    </span>
-                </div>
-                <div class="col tooltip">
-                    <button type="button" class="btn btn-lg btn-light btn-block"
-                            id="campfireButton">
-                        Create campfire (0)
-                    </button>
-                    <span id="campfireTool" class="tooltiptext">
-                        Generate 10 lumen per second <hr>
-                        Cost: 150 lumen
-                    </span>
-                </div>
-            </div>
-            <hr>
-            <p id="lumenPerHit">Lumen per hit: 1</p>
-            <button id="hitFlint" type="button" class="btn btn-lg btn-light btn-block">
-                Hit flint
-            </button>
-=======
             <div class="tab-content">
 
                 <!-- Tab-Building ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -160,7 +126,6 @@
                         explicabo.</p>
                 </div>
             </div>
->>>>>>> Stashed changes
         </div>
 
         <!-- Col-Log ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -188,9 +153,6 @@
         <button id="cheating10000000" class="btn btn-outline-warning"> 10000000</button>
     </nav>
 </footer>
-<<<<<<< Updated upstream
-<script type="module" src="main.js" charset="utf-8"></script>
-=======
 
 <!-- Scripts ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
@@ -201,5 +163,4 @@
         $(this).tab('show')
     })
 </script>
->>>>>>> Stashed changes
 </body>
