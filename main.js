@@ -185,7 +185,3 @@ window.onload = function () {
     updateWebsite();
 
 };
-
-
-
-
