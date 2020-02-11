@@ -14,19 +14,23 @@ var gameData = {
         upgrades: {
             torch: 0,
             campfire: 0,
+            bonfire: 0,
             },
         costs: {
             torch: 10,
             campfire: 150,
+            bonfire: 1000,
 
             costincrease: {
                 torch: 1.25,
                 campfire: 1.25,
+                bonfire: 1.25,
             },
         },
         income: {
             torch: 1,
             campfire: 10,
+            bonfire: 50
         },
     },
 
@@ -62,7 +66,7 @@ document.getElementById("deleteSave").addEventListener("click", deleteSave);
  */
 document.getElementById("torchButton").addEventListener("click", function () {callupgrade('resources', 'buildings','torch', 'lumen')});
 document.getElementById("campfireButton").addEventListener("click", function () {callupgrade('resources','buildings','campfire', 'lumen');});
-
+document.getElementById("bonfireButton").addEventListener("click", function () {callupgrade('resources','buildings','bonfire', 'lumen');});
 
 /*
         Research
@@ -128,11 +132,13 @@ function deleteSave() {
 }
 
 function updateWebsite() {
-    document.getElementById("torchButton").innerHTML = "Create Torch (" + gameData.buildings.upgrades.torch + ")";
     document.getElementById("lumen").innerHTML = "Lumen: " + gameData.resources.lumen + " (" + lumenPerSecond() + " p/s)";
+    document.getElementById("torchButton").innerHTML = "Create Torch (" + gameData.buildings.upgrades.torch + ")";
     document.getElementById("torchTool").innerHTML = "Generate 1 lumen per second<hr>Cost: " + gameData.buildings.costs.torch + " lumen";
     document.getElementById("campfireButton").innerHTML = "Create campfire (" + gameData.buildings.upgrades.campfire + ")";
     document.getElementById("campfireTool").innerHTML = "Generate 10 lumen per second<hr>Cost: " + gameData.buildings.costs.campfire + " lumen";
+    document.getElementById("bonfireButton").innerHTML = "Create bonfire (" + gameData.buildings.upgrades.bonfire + ")";
+    document.getElementById("bonfireTool").innerHTML = "Generate 50 lumen per second<hr>Cost: " + gameData.buildings.costs.bonfire + " lumen";
 }
 
 
