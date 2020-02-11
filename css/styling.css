@@ -4,11 +4,28 @@
 body {
     background-color: black;
     color: whitesmoke;
+<<<<<<< Updated upstream
+=======
+    height: 100vh;
+>>>>>>> Stashed changes
     overflow-y: hidden;
 }
 
 div .log {
     height: 90vh;
+<<<<<<< Updated upstream
+=======
+}
+
+/* NAVPILLS*/
+.nav-pills .tab .nav-link:not(.active) {
+    background-color: black;
+}
+
+.nav-pills .tab .nav-link {
+    background-color: #212121;
+    color: white;
+>>>>>>> Stashed changes
 }
 
 
