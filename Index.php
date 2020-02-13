@@ -29,7 +29,7 @@
 
     <!-- Nav-bar ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-    <div class="row">
+    <div class="row nodisplay" id="nav">
         <div class="col-2"></div>
         <div class="col">
             <ul class="nav nav-pills nav-justified " role="tablist" id="tabs">
@@ -69,7 +69,7 @@
 
                     <!-- Nav-Building ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                    <div class="row">
+                    <div class="row nodisplay" id="navBuildings">
                         <div class="col">
                             <ul class="nav nav-pills nav-justified " role="tablist" id="tabs">
                                 <li class="nav-item tab"><a class="nav-link active" data-toggle="pill"
@@ -96,7 +96,7 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col tooltip">
+                                <div class="col-4 tooltip nodisplay" id="torch">
                                     <button type="button" class="btn btn-lg btn-light btn-block" id="torchButton">
                                         Create torch (0)
                                     </button>
@@ -104,7 +104,7 @@
                                 Generate 1 lumen per second <hr>
                                 Cost: 10 lumen</span>
                                 </div>
-                                <div class="col tooltip">
+                                <div class="col-4 tooltip nodisplay" id="campfire">
                                     <button type="button" class="btn btn-lg btn-light btn-block"
                                             id="campfireButton">
                                         Create campfire (0)
@@ -113,7 +113,7 @@
                                 Generate 10 lumen per second <hr>
                                 Cost: 150 lumen</span>
                                 </div>
-                                <div class="col tooltip">
+                                <div class="col-4 tooltip nodisplay" id="bonfire">
                                     <button type="button" class="btn btn-lg btn-light btn-block"
                                             id="bonfireButton">
                                         Create bonfire (0)

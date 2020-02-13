@@ -99,6 +99,13 @@ function standard_upgrade(affects, upgrade, resource) {
     }
 }
 
+/* Unlock Functions ------------------------------------------------------------------------------------------------------------------------------------------- */
+
+function unlockElement(id){
+    var element = document.getElementById(id);
+    element.classList.remove("nodisplay")
+}
+
 /* UNSORTED FUNCTIONS ------------------------------------------------------------------------------------------------------------------------------------------- */
 function lumenPerSecond() {
     var upgrade = Object.values(gameData.buildings.upgrades);
@@ -146,7 +153,21 @@ function updateWebsite() {
 
 var mainGameLoop = window.setInterval(function () {
     /* checks */
-
+    if (gameData.resources.lumen >= 5){
+        unlockElement("torch")
+    }
+    if (gameData.resources.lumen >= 50){
+        unlockElement("campfire")
+    }
+    if (gameData.resources.lumen >= 250){
+        unlockElement("bonfire")
+    }
+    if (gameData.buildings.upgrades.bonfire >= 1){
+        unlockElement("nav")
+    }
+    if (gameData.buildings.upgrades.bonfire >= 1){
+        unlockElement("navBuildings")
+    }
 
     /* calculation */
     gameData.resources.lumen += lumenPerSecond();
