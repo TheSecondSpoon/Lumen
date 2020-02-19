@@ -29,15 +29,15 @@
 
     <!-- Nav-bar ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-    <div class="row">
+    <div class="row nodisplay" id="nav">
         <div class="col-2"></div>
         <div class="col">
             <ul class="nav nav-pills nav-justified " role="tablist" id="tabs">
-                <li class="nav-item tab"><a class="nav-link active" data-toggle="pill" href="#buildings">Buildings</a>
-                </li>
-                <li class="nav-item tab"><a class="nav-link" data-toggle="pill" href="#research">Research</a></li>
-                <li class="nav-item tab"><a class="nav-link" data-toggle="pill" href="#menu2">Menu 2</a></li>
-                <li class="nav-item tab"><a class="nav-link" data-toggle="pill" href="#menu3">Menu 3</a></li>
+                <li class="nav-item tab"><a class="nav-link active" data-toggle="pill"
+                                            href="#buildings-tab">Buildings</a></li>
+                <li class="nav-item tab"><a class="nav-link" data-toggle="pill" href="#research-tab">Research</a></li>
+                <li class="nav-item tab"><a class="nav-link" data-toggle="pill" href="#character-tab">Character</a></li>
+                <li class="nav-item tab nodisplay"><a class="nav-link" data-toggle="pill" href="#menu3-tab">Menu 3</a></li>
             </ul>
         </div>
         <div class="col-4"></div>
@@ -54,7 +54,7 @@
             <h2 class="text-center">Resources</h2>
             <hr>
             <p id="lumen">Lumen: 0</p>
-            <p id="science">Science: 0</p>
+            <p id="research">research: 0</p>
         </div>
 
         <!-- Col-tabs ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -64,12 +64,13 @@
 
                 <!-- Tab-Building ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                <div id="buildings" class="tab-pane fade show active" role="tabpanel" aria-labelledby="buildings-tab">
+                <div id="buildings-tab" class="tab-pane fade show active" role="tabpanel"
+                     aria-labelledby="buildings-tab">
                     <h2 class="text-center">Buildings</h2>
 
                     <!-- Nav-Building ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                    <div class="row">
+                    <div class="row nodisplay" id="navBuildings">
                         <div class="col">
                             <ul class="nav nav-pills nav-justified " role="tablist" id="tabs">
                                 <li class="nav-item tab"><a class="nav-link active" data-toggle="pill"
@@ -96,7 +97,7 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col tooltip">
+                                <div class="col-4 tooltip nodisplay" id="torch">
                                     <button type="button" class="btn btn-lg btn-light btn-block" id="torchButton">
                                         Create torch (0)
                                     </button>
@@ -104,7 +105,7 @@
                                 Generate 1 lumen per second <hr>
                                 Cost: 10 lumen</span>
                                 </div>
-                                <div class="col tooltip">
+                                <div class="col-4 tooltip nodisplay" id="campfire">
                                     <button type="button" class="btn btn-lg btn-light btn-block"
                                             id="campfireButton">
                                         Create campfire (0)
@@ -113,7 +114,7 @@
                                 Generate 10 lumen per second <hr>
                                 Cost: 150 lumen</span>
                                 </div>
-                                <div class="col tooltip">
+                                <div class="col-4 tooltip nodisplay" id="bonfire">
                                     <button type="button" class="btn btn-lg btn-light btn-block"
                                             id="bonfireButton">
                                         Create bonfire (0)
@@ -129,29 +130,67 @@
 
                         <div id="building-research" class="tab-pane fade" role="tabpanel"
                              aria-labelledby="buildingsResearch-tab">
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    <button id="hitResearch" type="button" class="btn btn-lg btn-light btn-block">
+                                        Research on workbench
+                                    </button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-4 tooltip" id="researchWorkbench">
+                                    <button type="button" class="btn btn-lg btn-light btn-block" id="researchWorkbench">
+                                        Research workbench
+                                    </button>
+                                    <span id="torchTool" class="tooltiptext">
+                                Build a research workbench. Enables you to dedicate your time to research. Build only once.<hr>
+                                Cost: 5000 lumen</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab-Menu1 ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+                <!-- Tab-research ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                <div id="research" class="tab-pane fade" role="tabpanel" aria-labelledby="research-tab">
+                <div id="research-tab" class="tab-pane fade" role="tabpanel" aria-labelledby="research-tab">
                     <h2 class="text-center">Research</h2>
                     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat.</p>
                 </div>
 
-                <!-- Tab-Menu2 ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+                <!-- Tab-character ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                <div id="menu2" class="tab-pane fade" role="tabpanel" aria-labelledby="menu2-tab">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                        totam rem aperiam.</p>
+                <div id="character-tab" class="tab-pane fade" role="tabpanel" aria-labelledby="character-tab">
+                    <h2 class="text-center">Character</h2>
+                    <h4 class="text-center">Time dedication</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-4 tooltip" id="dedicateLumen">
+                            <button type="button" class="btn btn-lg btn-light btn-block" id="torchButton">
+                                Dedicate time to Lumen
+                            </button>
+                            <span id="torchTool" class="tooltiptext">
+                                Dedicate your time to lumen. Enable hit flint.</span>
+                        </div>
+                        <div class="col-4 tooltip" id="dedicateResearch">
+                            <button type="button" class="btn btn-lg btn-light btn-block"
+                                    id="campfireButton">
+                                Dedicate time to Research
+                            </button>
+                            <span id="campfireTool" class="tooltiptext">
+                                Dedicate your time to lumen. Enable research on workbench.</span>
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <!-- Tab-Menu2 ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                <div id="menu3" class="tab-pane fade" role="tabpanel" aria-labelledby="menu3-tab">
+                <div id="menu3-tab" class="tab-pane fade" role="tabpanel" aria-labelledby="menu3-tab">
                     <h3>Menu 3</h3>
                     <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
                         explicabo.</p>

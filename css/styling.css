@@ -14,6 +14,9 @@ div .log {
     font-size: .9rem;
 }
 
+.nodisplay {
+    display: none !important;
+}
 
 /* nav-pills*/
 .nav-pills .tab .nav-link:not(.active) {
@@ -36,7 +39,7 @@ div .log {
 /*tooltip text */
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: max-content;
+    width: 250px;
     background-color: dimgrey;
     text-align: center;
     padding: 5px 10px;
