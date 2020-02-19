@@ -137,8 +137,7 @@ function unlockElement(id){
     var element = document.getElementById(id);
     element.classList.remove("nodisplay")
 }
-<<<<<<< HEAD
-=======
+
 function disableElement(id){
     var element = document.getElementById(id);
     element.classList.add("disabled")
@@ -150,7 +149,7 @@ function buttonUnlock(){
 function tabUnlock(){
 
 }
->>>>>>> d15453cba2defd13755a494fdf3a9c36db73e604
+
 
 /* UNSORTED FUNCTIONS ------------------------------------------------------------------------------------------------------------------------------------------- */
 function lumenPerSecond() {
@@ -211,17 +210,12 @@ var mainGameLoop = window.setInterval(function () {
     if (gameData.resources.lumen >= 250){
         unlockElement("bonfire")
     }
-<<<<<<< HEAD
-    if (gameData.buildings.upgrades.bonfire >= 1){
-        unlockElement("nav")
-    }
-    if (gameData.buildings.upgrades.bonfire >= 1){
-=======
+
+
     if (gameData.buildings.lumen.upgrades.bonfire >= 1){
         unlockElement("nav")
     }
     if (gameData.buildings.lumen.upgrades.bonfire >= 1){
->>>>>>> d15453cba2defd13755a494fdf3a9c36db73e604
         unlockElement("navBuildings")
     }
 
